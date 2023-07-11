@@ -2,6 +2,7 @@
   "name": "octopuschargermap",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://your-username.github.io/octopuschargermap/",
   "dependencies": {
     "@chakra-ui/react": "^2.7.1",
     "@googlemaps/react-wrapper": "^1.1.35",
@@ -9,7 +10,6 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "gh-pages": "^5.0.0",
     "install": "^0.13.0",
     "npm": "^9.8.0",
     "react": "^18.2.0",
@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "gh-pages": "^5.0.0"
   }
 }
