@@ -258,7 +258,7 @@ function EVMap() {
         m={4}
         bgColor="brand.200"
         shadow="base"
-        minW="container.md"
+        w={[300, 400, 500]} // Responsive width
         zIndex="1"
       >
         <HStack spacing={4} justifyContent="center">
@@ -270,8 +270,9 @@ function EVMap() {
             }}
             onClick={findEVChargers}
             disabled={!currentLocation || loading}
+            fontSize={{ base: '14px', md: '14px', lg: '14px' }}
           >
-            {loading ? "Loading..." : "Find EV Chargers"}
+            {loading ? "Loading..." : "Find EVCs"}
           </Button>
           <Button
             bg="brand.100"
@@ -281,8 +282,9 @@ function EVMap() {
             }}
             onClick={calculateClosestEVChargerDistance}
             disabled={!currentLocation || chargers.length === 0 || loading}
+            fontSize={{ base: '14px', md: '14px', lg: '14px' }}
           >
-            Closest EV Charger
+            Closest EVC
           </Button>
           <IconButton
             aria-label="center back"
@@ -292,7 +294,7 @@ function EVMap() {
           />
         </HStack>
         <HStack spacing={4} mt={4} justifyContent="center">
-          <Text color="brand.100">
+          <Text color="brand.100" fontSize={{ base: '14px', md: '14px', lg: '14px' }}>
             {chargers.length > 0
               ? `Found ${chargers.length} EV Chargers`
               : "No EV Chargers found"}
@@ -310,8 +312,8 @@ function EVMap() {
           )}
         </HStack>
         <HStack spacing={4} mt={4} justifyContent="center">
-          <Text color="brand.100">Distance: {distance}</Text>
-          <Text color="brand.100">Duration: {duration}</Text>
+          <Text color="brand.100" fontSize={{ base: '14px', md: '14px', lg: '14px' }}>Distance: {distance}</Text>
+          <Text color="brand.100" fontSize={{ base: '14px', md: '14px', lg: '14px' }}>Duration: {duration}</Text>
         </HStack>
       </Box>
     </Flex>
