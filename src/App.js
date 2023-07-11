@@ -1,11 +1,6 @@
-import GoogleMaps from "./components/GoogleMaps";
-
+import EVMap from "./components/EVMap";
 function App() {
-  return (
-    <>
-      <GoogleMaps />
-    </>
-  );
+  return <EVMap />;
 }
 
 export default App;
