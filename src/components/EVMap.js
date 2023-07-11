@@ -23,6 +23,36 @@ import { useRef, useState } from "react";
 
 const center = { lat: 51.5007292, lng: -0.1246254 };
 
+const mapStyles = [
+  {
+    featureType: "poi",
+    elementType: "geometry",
+    stylers: [
+      {
+        color: "#eeeeee",
+      },
+    ],
+  },
+  {
+    featureType: "poi",
+    elementType: "labels.text",
+    stylers: [
+      {
+        visibility: "off",
+      },
+    ],
+  },
+  {
+    featureType: "water",
+    elementType: "labels.text.fill",
+    stylers: [
+      {
+        color: "#9e9e9e",
+      },
+    ],
+  },
+];
+
 function EVMap() {
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -85,6 +115,7 @@ function EVMap() {
             streetViewControl: false,
             mapTypeControl: false,
             fullscreenControl: false,
+            styles: mapStyles,
           }}
           onLoad={(map) => setMap(map)}
         >
@@ -98,7 +129,7 @@ function EVMap() {
         p={4}
         borderRadius="lg"
         m={4}
-        bgColor="white"
+        bgColor="brand.200"
         shadow="base"
         minW="container.md"
         zIndex="1"
@@ -106,7 +137,12 @@ function EVMap() {
         <HStack spacing={2} justifyContent="space-between">
           <Box flexGrow={1}>
             <Autocomplete>
-              <Input type="text" placeholder="Origin" ref={originRef} />
+              <Input
+                type="text"
+                placeholder="Origin"
+                ref={originRef}
+                bgColor="white"
+              />
             </Autocomplete>
           </Box>
           <Box flexGrow={1}>
@@ -115,6 +151,7 @@ function EVMap() {
                 type="text"
                 placeholder="Destination"
                 ref={destiantionRef}
+                bgColor="white"
               />
             </Autocomplete>
           </Box>
@@ -122,10 +159,9 @@ function EVMap() {
           <ButtonGroup>
             <Button
               bg="brand.100"
-              color="white"
+              color="brand.200"
               _hover={{
                 background: "brand.101",
-                color: "white",
               }}
               type="submit"
               onClick={calculateRoute}
@@ -140,8 +176,8 @@ function EVMap() {
           </ButtonGroup>
         </HStack>
         <HStack spacing={4} mt={4} justifyContent="space-between">
-          <Text>Distance: {distance} </Text>
-          <Text>Duration: {duration} </Text>
+          <Text color="brand.100">Distance: {distance} </Text>
+          <Text color="brand.100">Duration: {duration} </Text>
           <IconButton
             aria-label="center back"
             icon={<FaLocationArrow />}
